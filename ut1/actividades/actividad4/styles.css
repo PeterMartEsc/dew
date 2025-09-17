@@ -1,0 +1,18 @@
+
+.contenedorPrincipal{
+  display: flex;
+  justify-content: center;
+}
+
+.formulario{
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
+
+  margin-top: 40px;
+  padding: 20px;
+  width: 190px;
+
+  /* background-color: red; */
+}
+
