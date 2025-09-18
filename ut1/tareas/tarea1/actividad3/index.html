@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actividad Depuración</title>
+</head>
+<body>
+    <form onsubmit="return validarFormulario()">
+        <input type="text" id="email" placeholder="Tu email">
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="mensaje"></p>
+
+    <script>
+        function validarFormulario() {
+            let email = document.getElementById('email').value; // Obtiene el valor
+            let mensaje = document.getElementById('mensaje');
+
+            // Intenta validar si el email contiene '@'
+            if (email.indexOf('@') > 0) { // Error lógico: debería ser > -1
+                mensaje.textContent = "Email válido. Formulario enviado.";
+                return true;
+            } else {
+                mensaje.textContent = "Por favor, introduce un email válido.";
+                return false; // Evita que el formulario se envíe
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Actividad 2</title>
+</head>
+
+<body>
+  <div class="contenedorPrincipal">
+
+    <!--Actividad 2.1 -->
+    <div class="apartado">
+      <div class="boton">
+        <button type="button" onclick="alert('Script inline ejecutado')">Actividad 2.1 (Alert)</button>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Actividad 2.2 -->
+    <div class="apartado">
+      <div class="boton">
+        <button type="button" class="boton2" onclick="saludar()">Actividad 2.2 (Saludar)</button>
+      </div>
+      <div class="parrafo">
+        <p id="saludo" style="display: none;">¡Hola desde un script interno!</p>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Actividad 2.3 -->
+    <div class="apartado">
+      <div class="boton">
+        <button type="button" class="boton2" onclick="changeBackground()">Actividad 2.3 (Cambiar color)</button>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+<script>
+  // Actividad 2.2
+  function saludar(){
+    document.querySelector('#saludo').style.display = 'block';
+  }
+
+</script>
+
+</html>
