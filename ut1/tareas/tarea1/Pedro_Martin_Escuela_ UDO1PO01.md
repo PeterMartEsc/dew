@@ -24,6 +24,74 @@ La actividad es realizada en el directorio:
 /ut1/tareas/tarea1/actividad2
 ```
 
+`index.html` con el codigo de HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Actividad 2</title>
+</head>
+
+<body>
+  <div class="contenedorPrincipal">
+
+    <!--Actividad 2.1 -->
+    <div class="apartado">
+      <div class="boton">
+        <button type="button" onclick="alert('Script inline ejecutado')">Actividad 2.1 (Alert)</button>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Actividad 2.2 -->
+    <div class="apartado">
+      <div class="boton">
+        <button type="button" class="boton2" onclick="saludar()">Actividad 2.2 (Saludar)</button>
+      </div>
+      <div class="parrafo">
+        <p id="saludo" style="display: none;">¡Hola desde un script interno!</p>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- Actividad 2.3 -->
+    <div class="apartado">
+      <div class="boton">
+        <button type="button" class="boton2" onclick="changeBackground()">Actividad 2.3 (Cambiar color)</button>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+<script>
+  // Actividad 2.2
+  function saludar(){
+    document.querySelector('#saludo').style.display = 'block';
+  }
+
+</script>
+
+</html>
+```
+
+`index.js` con el script del apartado 3 de la actividad
+
+```js
+// Actividad 2.3
+function changeBackground(){
+
+  document.querySelector('body').style.backgroundColor = 'red';
+  // lightcyan no se distingue
+}
+```
+
 ## Actividad 3
 
 1. __Copia y pega el siguiente código HTML y JavaScript en un nuevo archivo. Contiene un error intencionado.__
