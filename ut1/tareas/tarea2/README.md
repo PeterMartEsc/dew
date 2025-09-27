@@ -6,10 +6,10 @@ Ampliación del ejercicio de la calculadora.
 
 ### Apartado: 1. (tiempo estimado 25 minutos)
 
-    Operaciones nuevas:
-    ◦ Módulo (%)
-    ◦ Potencia (a^b)
-    ◦ Raíz n-ésima (controlar no hacer raíces de números negativos).
+Operaciones nuevas:
+◦ Módulo (%)
+◦ Potencia (a^b)
+◦ Raíz n-ésima (controlar no hacer raíces de números negativos).
 
 ### Apartado: 2. (tiempo estimado 20 minutos)
 
@@ -38,3 +38,9 @@ Crea las funciones:
 ### Apartado: 2. (tiempo estimado 20 minutos)
 
 Añade las funciones anteriores al menú.
+
+Realizado en:
+
+```
+2_cazadoresTheWitcher.js
+```
