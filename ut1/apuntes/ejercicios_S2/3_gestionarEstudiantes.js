@@ -1,4 +1,4 @@
-const estudiantes = [];
+let estudiantes = [];
 
 function Estudiante(nombre, casa, edad) {
   this.nombre = nombre;
