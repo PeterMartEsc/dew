@@ -39,17 +39,21 @@ function menu() {
             case 1:
                 agregarIngresoGasto();
                 break;
-        // case 2:
-        //     totalIngresoGasto();
-        //     break;
-        // case 3:
-        //     mostrarCazadores();
-        //     break;
+            case 2:
+                // totalIngresoGasto();
+                console.log("Esta opción está en mantenimiento")
+                break;
+            case 3:
+                eleccionBorrarApunte();
+                break;
             case 4:
                 console.log(`Su saldo es de: ${saldo} €`);
                 break;
             case 5:
                 totalIngresoGasto();
+                break;
+            case 6:
+                resumenMensual();
                 break;
             case 7:
                 salir = true; // aquí sí sales del bucle y termina el programa
@@ -60,6 +64,7 @@ function menu() {
     }
 }
 
+// Operación 0
 function calcularSaldo(){
 
     let ingresado = arrayIngresos.reduce((valorAcumulado, registroActual) => valorAcumulado + registroActual.importe, 0)
@@ -68,6 +73,7 @@ function calcularSaldo(){
     saldo = ingresado - gastado;
 }
 
+// Operación 1
 function agregarIngresoGasto(){
 
     let registro = {fecha: "", concepto: "", importe: 0}
@@ -161,6 +167,76 @@ function introducirFecha(){
     return fecha;
 }
 
+//Operación 3
+
+function eleccionBorrarApunte(){
+    let salir = false;
+    let listaActualizada;
+
+    while(!salir){
+        console.log(" ================ ¿Borrar Ingreso o Gasto? ================ ")
+        console.log(" -------------------------- menu -------------------------- ")
+        console.log("                                                            ")
+        console.log("                       1.- Ingreso                          ")
+        console.log("                       2.- Gasto                            ")
+        console.log("                       3.- Salir                            ")
+        console.log("                                                            ")
+        console.log(" ========================================================== ")
+
+        eleccion = parseInt(prompt(" "))
+
+        switch(eleccion){
+            case 1:
+                listaActualizada = borrar(arrayIngresos)
+                arrayIngresos = listaActualizada;
+                salir = true;
+                break;
+            case 2:
+                listaActualizada = borrar(arrayGastos)
+                arrayGastos = listaActualizada;
+                salir = true;
+                break;
+            case 3: 
+                salir = true;
+                break;
+            default:
+                console.log("Ese valor no está contemplado")
+        }
+    }
+}
+
+function borrar(listaElegida){
+
+    let salir  = false;
+    let regExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    let fechaElegida;
+
+    while(!salir){
+        fechaElegida = prompt("Introduzca la fecha del registro a borrar (yyyy-MM-dd): ")
+
+        if (!fechaElegida.match(regExp)) {
+            console.log("Formato incorrecto o fecha imposible. Use yyyy-MM-dd (por ejemplo: 2025-10-13).");
+        } else {
+            salir = true;
+        }
+    }
+
+    let indiceElegido = listaElegida.findIndex(registro => 
+        registro.fecha === fechaElegida
+    );
+
+    if(indiceElegido < 0){
+        console.log("No se ha encontrado el registro especificado.")
+        return listaElegida;
+    }
+
+    const eliminado = listaElegida.splice(indiceElegido, 1);
+    console.log("Se ha eliminado el registro: "+JSON.stringify(eliminado))
+
+    return listaElegida;
+}
+
+//Operación 5
 function totalIngresoGasto(){
 
     let salir = false;
@@ -199,25 +275,48 @@ function totalIngresoGasto(){
     }
 }
 
+// Operación 6
 function resumenMensual(){
 
     let salir = false;
+    let ingresadoMesAnio, gastadoMesAnio, anio;
+    let saldoFinal = 0;
+    let regExp = /^\d{4}-\d{2}$/;
 
-    let anio = parseInt(prompt("Introduzca el anio y mes para filtrar (yyyy-MM): "))
+    while(!salir){
+        anio = prompt("Introduzca el anio y mes para filtrar (yyyy-MM): ")
 
-    let registrosIngresadoByAnioMes = [];
-
-    arrayIngresos.map((registro, index)=> {
-
-        let regex = /^([A-Z0-9]{6})\d$/;
-
-        let fechaConcreto = registro.fecha.match()
-
-        if(fechaConcreto[0]===anio){
-            registrosIngresadoByAnio.push(registro)
+        if (!anio.match(regExp)) {
+            console.log("Formato incorrecto. Use yyyy-MM (por ejemplo: 2025-10).");
+        } else {
+            salir = true;
         }
-    })
+    }
 
-    let ingresadoMesAnio = arrayIngresos.reduce((valorAcumulado, registroActual) => valorAcumulado + registroActual.importe, 0)
-    let gastadoMesAnio = arrayGastos.reduce((valorAcumulado, registroActual) => valorAcumulado + registroActual.importe, 0)
+    let registrosIngresadoByAnioMes = arrayIngresos.filter(registro => 
+        registro.fecha.startsWith(anio)
+    );
+
+    let registrosGastadoByAnioMes = arrayGastos.filter(registro => 
+        registro.fecha.startsWith(anio)
+    );
+
+    if(!registrosIngresadoByAnioMes.length > 0){
+        console.log("No hay ningun ingreso en esa fecha")
+    } else {
+        ingresadoMesAnio = registrosIngresadoByAnioMes.reduce((valorAcumulado, registroActual) => valorAcumulado + registroActual.importe, 0)
+        console.log("Total ingresado: "+ingresadoMesAnio)
+        saldoFinal = ingresadoMesAnio;
+    }
+
+    if(!registrosGastadoByAnioMes.length > 0){
+        console.log("No hay ningun gasto en esa fecha")
+    } else {
+        gastadoMesAnio = registrosGastadoByAnioMes.reduce((valorAcumulado, registroActual) => valorAcumulado + registroActual.importe, 0)
+        console.log("Total gastado: "+gastadoMesAnio)
+        saldoFinal -= gastadoMesAnio;
+    }
+
+    console.log("Su saldo final en este mes fue de: "+saldoFinal)
+
 }
