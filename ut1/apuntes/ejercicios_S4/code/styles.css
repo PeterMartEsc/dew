@@ -1,0 +1,21 @@
+body{
+    font-family:system-ui;margin:2rem;line-height:1.4
+}
+
+button{
+    padding:.5rem 1rem;
+    margin:.25rem
+}
+
+.status{
+    padding:.25rem .5rem;
+    border-radius:.25rem
+}
+
+.ok{
+    background:#e6ffed
+}
+
+.err{
+    background:#ffe6e6
+}
