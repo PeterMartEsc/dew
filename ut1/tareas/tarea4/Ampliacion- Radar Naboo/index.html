@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radar de Defensa - Naboo</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container1">
+        <h1>Radar de Defensa Planetario Naboo</h1>
+        <div id="radar-display">
+            <div id="nave-count">0</div>
+            <p>Naves detectadas en el sector</p>
+        </div>
+        <div class="controls">
+            <button id="decrease-btn">Disminuir naves</button>
+            <button id="increase-btn">Aumentar naves</button>
+        </div>
+        <div class="status" id="status-indicator">
+            Estado: Normal
+        </div>
+    </div>
+
+    <div class="container2">
+        <h2>Laboratorio BOM</h2>
+
+        <!-- Apartado 1 -->
+        <section class="bom-section" id="sec-info">
+            <h3>1) Panel del dispositivo y navegador</h3>
+            <div class="grid">
+                <div>
+                    <strong>Pantalla:</strong>
+                    <span id="s-size">-</span>
+                </div>
+                <div>
+                    <strong>Área útil:</strong> 
+                    <span id="s-avail">-</span>
+                </div>
+                <div>
+                    <strong>Profundidad color:</strong> 
+                    <span id="s-depth">-</span>
+                </div>
+                <div>
+                    <strong>Idioma:</strong> 
+                    <span id="n-lang">-</span>
+                </div>
+                <div>
+                    <strong>Online:</strong> 
+                    <span id="n-online">-</span>
+                </div>
+                <div>
+                    <strong>Cookies:</strong> 
+                    <span id="n-cookie">-</span>
+                </div>
+                <div>
+                    <strong>URL:</strong> 
+                    <span id="l-href">-</span>
+                </div>
+                <div>
+                    <strong>Proto/Host/Path:</strong> 
+                    <span id="l-php">-</span>
+                </div>
+            </div>
+            <div class="row">
+                <button id="btn-refresh">Actualizar</button>
+                <button id="btn-title">Cambiar título</button>
+                <button id="btn-alert">Aviso</button>
+            </div>
+        </section>
+
+        <!-- Apartado 2 -->
+        <section class="bom-section" id="sec-window">
+            <h3>2) Laboratorio de ventanas</h3>
+            <div class="row">
+                <button id="btn-open">Abrir patrulla</button>
+                <button id="btn-move">Mover a (x,y)</button>
+                <input id="mv-x" type="number" placeholder="x" class="num" value="80" />
+                <input id="mv-y" type="number" placeholder="y" class="num" value="80" />
+            </div>
+            <div class="row">
+                <button id="btn-resize">Redimensionar (w,h)</button>
+                <input id="rs-w" type="number" placeholder="w" class="num" value="480" />
+                <input id="rs-h" type="number" placeholder="h" class="num" value="320" />
+                <button id="btn-close">Cerrar</button>
+            </div>
+            <p class="hint" id="child-status">Ventana: cerrada</p>
+        </section>
+
+        <!-- Apartado 3 -->
+        <section class="bom-section" id="sec-nav">
+            <h3>3) Navegación, historial y temporizadores</h3>
+
+            <div class="row">
+                <label>Timeout alerta (ms):
+                    <input id="to-ms" type="number" class="num" value="3000" />
+                </label>
+                <button id="btn-settimeout">Programar alerta</button>
+                <button id="btn-cleartimeout">Cancelar alerta</button>
+            </div>
+
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

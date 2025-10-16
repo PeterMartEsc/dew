@@ -1,0 +1,212 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;               
+    
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0e17;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container1 {
+    text-align: center;
+    background-color: #1a1f2e;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    width: 60%;
+    max-width: 500px;
+}
+
+.container2{
+  text-align:left;
+  background: linear-gradient(180deg,#141a27 0%,#0f1523 100%);
+  border:1px solid #273049;
+  border-radius:14px;
+  box-shadow: 0 8px 28px rgba(8,140,255,.15), inset 0 0 0 1px rgba(255,255,255,.02);
+  width:32%;
+  max-width:560px;
+  padding:1.25rem 1.25rem 1rem;
+}
+
+.container2 h2{
+  margin:0 0 .75rem 0;
+  font-size:1.15rem;
+  color:#9bd6ff;
+  letter-spacing:.3px;
+  border-bottom:1px solid #273049;
+  padding-bottom:.5rem;
+}
+
+h1 {
+    color: #4ae0ff;
+    margin-top: 0;
+    text-shadow: 0 0 10px rgba(74, 224, 255, 0.7);
+}
+
+#radar-display {
+    background-color: #0e1523;
+    border: 2px solid #4ae0ff;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 15px rgba(74, 224, 255, 0.3);
+}
+
+#nave-count {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #4ae0ff;
+    text-shadow: 0 0 15px rgba(74, 224, 255, 0.7);
+    margin: 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+button {
+    background-color: #2a3b5a;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #3a4b6a;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#status-indicator {
+    font-weight: bold;
+    padding: 0.8rem;
+    border-radius: 5px;
+    background-color: #0e1523;
+}
+
+/* Estados de color según el número de naves */
+.nivel-bajo {
+    background-color: #2e7d32 !important; /* Verde */
+    color: white;
+}
+
+.nivel-medio {
+    background-color: #f9a825 !important; /* Amarillo */
+    color: black;
+}
+
+.nivel-alto {
+    background-color: #c62828 !important; /* Rojo */
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+.bom-section{
+  border:1px solid #273049;
+  background: rgba(20,26,39,.55);
+  border-radius:12px;
+  padding:1rem;
+  margin: .9rem 0;
+}
+.bom-section h3{
+  margin:.1rem 0 .75rem 0;
+  font-size:1rem;
+  color:#b9c9e6;
+}
+
+/* Grid de datos */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:.6rem .9rem;
+  margin:.5rem 0 .9rem 0;
+}
+.grid > div{
+  background:#0e1523;
+  border:1px solid #273049;
+  border-radius:10px;
+  padding:.55rem .7rem;
+  font-size:.95rem;
+}
+.grid strong{ color:#8fb4ff; }
+
+/* Filas de controles */
+.row{
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:.6rem 0 0 0;
+}
+
+/* Botones e inputs locales */
+.container2 button{
+  background:#233352;
+  border:1px solid #2f4470;
+  padding:.55rem .9rem;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:.95rem;
+  transition: transform .12s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.container2 button:hover{
+  background:#2b3e65;
+  box-shadow:0 0 0 2px rgba(8,140,255,.15);
+  transform: translateY(-1px);
+}
+.container2 button:active{ transform: translateY(0); }
+
+.container2 input[type="number"],
+.container2 input[type="text"]{
+  background:#0e1523;
+  color:#e0e0e0;
+  border:1px solid #2b3a58;
+  border-radius:10px;
+  padding:.5rem .6rem;
+  outline:none;
+  font-size:.95rem;
+}
+.container2 input:focus{
+  border-color:#3f71ff;
+  box-shadow:0 0 0 2px rgba(63,113,255,.15);
+}
+.num{ width:7rem; }
+
+/* Estado e indicadores */
+.hint{ color:#9aa8c6; font-size:.9rem; margin-top:.4rem; }
+.pulse{ width:16px; height:16px; border-radius:50%; background:#3a485f; }
+.pulse.on{ background:#08f; box-shadow:0 0 10px #08f; }
+
+/* Reducir todo el texto dentro de .container2 al 75% */
+.container2, .container2 * {
+  font-size: 0.6rem !important;
+}
+
+
+/* Responsive */
+@media (max-width: 980px){
+  .container2{ width:96%; max-width:none; }
+  .grid{ grid-template-columns:1fr; }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
