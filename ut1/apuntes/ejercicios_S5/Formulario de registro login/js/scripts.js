@@ -1,29 +1,83 @@
+DOM = {
+    loginMail: document.getElementById("loginMail"),
+    loginPassword: document.getElementById("loginPassword"),
+
+    nombre: document.getElementById("name"),
+    surName: document.getElementById("surName"),
+    email: document.getElementById("email"),
+    age: document.getElementById("age"),
+    city: document.getElementById("city"),
+    registerPassword: document.getElementById("registerPassword"),
+    confirmPassword: document.getElementById("confirmPassword"),
+
+    registerForm: document.getElementById("registerForm"),
+    loginForm: document.getElementById("loginForm"),
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    let loginForm = document.getElementById("loginForm");
+    DOM.loginForm.addEventListener("submit", handleLogin)
 
-    loginForm.addEventListener("submit", () => {
-        // regocer todos los datos del login formulario
+    function handleLogin(){
 
-    })
+        if(!localStorage.getItem(DOM.loginMail.value)){
+            console.log("Este usuario no existe. Regístrese primero")
+            return
+        }
 
-    let registerForm = document.getElementById("registerForm");
+        if(!localStorage.getItem(DOM.loginPassword.value) != localStorage.getItem(DOM.loginMail.value).mailUsuario){
+            console.log("La contraseña es incorrecta")
+            return;
+        }
+    }
 
-    registerForm.addEventListener("submit", () => {
-        // regocer todos los datos del register formulario
-        const name = document.getElementById("name")
-        const fullName = document.getElementById("fullName")
-        const email = document.getElementById("email")
-        const age = document.getElementById("age")
-        const city = document.getElementById("city")
-        const registerPassword = document.getElementById("registerPassword")
-        const confirmPassword = document.getElementById("confirmPassword")
+    DOM.registerForm.addEventListener("submit", handleRegister)
 
-        validarDatosRegister();
-    })
+    function handleRegister(){
 
-    function validarDatosRegister(){
+        // Nombre no numeros 
+        // edad no letras no mucha edad
+        
+        if(localStorage.getItem(DOM.email.value)){
+            console.log("El mail ya existe")
+            return
+        }
 
+        let regExpMail = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
+
+        if(!DOM.email.value.match(regExpMail)){
+            console.log("El correo no es válido")
+            return;
+        }
+
+        let numChar = /\d/
+
+        if(DOM.nombre.value.test(numChar) || DOM.surName.value.test(numChar)){
+            console.log("Ni el nombre ni los apellidos pueden contener numeros")
+            return
+        }
+
+        if(DOM.age.value > 100 || DOM.age.value < 18){
+            console.log("La edad no es válida. El usuario debe ser mayor de edad")
+            return
+        }
+
+        if(DOM.confirmPassword.value != DOM.registerPassword.value){
+            console.log("Las la contraseña de confirmación debe ser igual a la de registro")
+            return
+        }
+
+        usuario = {
+            nombreUsuario: DOM.nombre.value,
+            apellidoUsuario: DOM.surName.value,
+            mailUsuario: DOM.email.value,
+            edadUsuario: DOM.age.value,
+            ciudadUsuario: DOM.city.value,
+            contraseñaUsuario: DOM.registerPassword.value
+        }
+
+        localStorage.setItem(DOM.email, usuario)
     }
 
 })
