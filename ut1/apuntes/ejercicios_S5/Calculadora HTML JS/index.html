@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora DOM</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <main id="app" class="container">
+            <h1>Calculadora</h1>
+
+            <output id="display" aria-live="polite">0</output>
+
+            <section id="keys" class="keys"
+                aria-label="Teclado de la calculadora">
+                <button class="btn num" data-key="7">7</button>
+                <button class="btn num" data-key="8">8</button>
+                <button class="btn num" data-key="9">9</button>
+                <button class="btn op" data-op="divide">÷</button>
+
+                <button class="btn num" data-key="4">4</button>
+                <button class="btn num" data-key="5">5</button>
+                <button class="btn num" data-key="6">6</button>
+                <button class="btn op" data-op="multiplica">×</button>
+
+                <button class="btn num" data-key="1">1</button>
+                <button class="btn num" data-key="2">2</button>
+                <button class="btn num" data-key="3">3</button>
+                <button class="btn op" data-op="resta">−</button>
+
+                <button class="btn num" data-key="0"
+                    style="grid-column: span 2;">0</button>
+                <button class="btn num" data-key=".">.</button>
+                <button class="btn op" data-op="suma">+</button>
+
+                <button class="btn act" data-act="clear">C</button>
+                <button class="btn act" data-act="back">⌫</button>
+                <button class="btn act" data-act="sign">±</button>
+                <button class="btn act equals" data-act="equals">=</button>
+            </section>
+
+            <section class="panel">
+                <h2>Historial</h2>
+                <ul id="history" class="history"></ul>
+                <div class="row">
+                    <button id="clear-history" class="btn small">Vaciar
+                        historial</button>
+                    <button id="toggle-theme" class="btn small">Alternar
+                        tema</button>
+                </div>
+            </section>
+        </main>
+
+        <script src="scripts.js" defer></script>
+    </body>
+</html>
