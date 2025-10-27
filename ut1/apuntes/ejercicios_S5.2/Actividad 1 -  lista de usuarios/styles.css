@@ -1,0 +1,16 @@
+/* styles.css */
+:root { --bg:#0f172a; --panel:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#3b82f6; }
+* { box-sizing:border-box; }
+html,body { height:100%; margin:0; font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); }
+.container { max-width:720px; margin:32px auto; padding:16px; background:var(--panel); border:1px solid #222; border-radius:12px; }
+h1 { margin:0 0 12px; font-size:1.4rem; }
+.toolbar { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+button { padding:8px 12px; border-radius:8px; border:1px solid #1f2937; background:var(--accent); color:#fff; cursor:pointer; }
+button:hover { filter:brightness(1.05); }
+.status { font-size:0.9rem; color:var(--muted); }
+.users { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.user-item { padding:12px; border:1px solid #1f2937; border-radius:10px; background:#0b1220; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.user-name { font-weight:600; }
+.user-sep { color:var(--muted); }
+.user-email { color:#cbd5e1; text-decoration:none; }
+.user-email:hover { text-decoration:underline; }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista de Usuarios</h1>
+            <div class="buttons-container">
+                <button id="loadUsers">Cargar Usuarios</button>
+                <button id="simulateError">Simular Error</button>
+            </div>
+        </header>
+        
+        <div id="loading" class="hidden">
+            <p>Cargando usuarios...</p>
+        </div>
+        
+        <div id="usersContainer" class="users-container"></div>
+        
+        <div id="error" class="error hidden">
+            <p>Ha ocurrido un error al cargar los usuarios.</p>
+            <button id="retryButton">Reintentar</button>
+        </div>
+    </div>
+    
+    <div id="notification" class="notification hidden"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
