@@ -1,0 +1,45 @@
+:root{
+  --bg:#0b1220; --panel:#141b2d; --text:#e7ecf3; --muted:#9fb0c8;
+  --accent:#76b041; --danger:#d9534f; --ring:#ffffff22;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg); color:var(--text); padding:16px;
+}
+.banner{
+  text-align:center; padding:10px 12px; background:#1a2540; border:1px solid var(--ring);
+  border-radius:12px; margin-bottom:16px;
+}
+.grid{display:grid; gap:16px; grid-template-columns: repeat(3, 1fr);}
+.panel{
+  background:var(--panel); border:1px solid var(--ring); border-radius:14px;
+  padding:14px; display:flex; flex-direction:column; gap:12px;
+}
+.panel-log{grid-column: 1 / -1}
+.titulo{margin:0}
+.form{display:grid; gap:8px}
+.select{width:100%; padding:8px; border-radius:8px; border:1px solid var(--ring); background:#0f1729; color:var(--text)}
+.hp{height:16px; background:#0f1730; border-radius:99px; overflow:hidden; border:1px solid var(--ring)}
+.bar{height:100%; background:linear-gradient(90deg,var(--accent),#4caf50)}
+.hptext{margin:0; font-variant-numeric:tabular-nums}
+.btn{
+  padding:10px 12px; border-radius:10px; border:1px solid var(--ring);
+  background:#1a2540; color:var(--text); cursor:pointer
+}
+.btn:hover{filter:brightness(1.1)}
+.btn.primario{background:#234b2a}
+.btn.atacar.active{outline:3px solid #ffd166aa}
+
+.log{
+  min-height:120px; max-height:220px; overflow:auto;
+  background:#0f1729; border:1px dashed var(--ring); border-radius:10px; padding:10px
+}
+.log .line{padding:4px 0; border-bottom:1px dashed #ffffff11}
+.muted{color:var(--muted)}
+.hit{animation: blink 260ms ease-in 3}
+@keyframes blink{50%{filter:brightness(1.6)}}
+.ko{background:linear-gradient(90deg,var(--danger),#b23b38)}
+/* Demostración: reducir tamaño de todo hijo de .panel-log .log mediante clase */
+.small .log *{font-size:0.85rem}

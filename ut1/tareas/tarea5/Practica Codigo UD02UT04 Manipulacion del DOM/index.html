@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Lucha — Señor de los Anillos</title>
+        <link rel="stylesheet" href="./styles/styles.css" />
+    </head>
+    <body>
+        <header id="banner" class="banner">Simulador de batalla DOM</header>
+
+        <main class="grid">
+            <!-- Panel Jugador 1 -->
+            <section id="p1" class="panel">
+                <h2 class="titulo">Jugador 1</h2>
+
+                <!-- Acceso por id -->
+                <form id="form-p1" class="form">
+                    <label>Ejército
+                        <select id="p1-army" class="select army">
+                            <option>Elfos</option>
+                            <option>Hombres</option>
+                            <option>Enanos</option>
+                            <option>Orcos</option>
+                        </select>
+                    </label>
+
+                    <!-- Acceso por clase -->
+                    <label>Arma
+                        <select class="select weapon" id="p1-weapon">
+                            <option>Espada</option>
+                            <option>Arco</option>
+                            <option>Hacha</option>
+                            <option>Magia</option>
+                        </select>
+                    </label>
+                </form>
+
+                <div class="hp">
+                    <div class="bar" id="p1-bar" style="width:100%"></div>
+                </div>
+                <p id="p1-hp" class="hptext">100 / 100</p>
+
+                <button id="btn-p1" class="btn atacar">Atacar</button>
+            </section>
+
+            <!-- Panel Jugador 2 -->
+            <section id="p2" class="panel">
+                <h2 class="titulo">Jugador 2</h2>
+
+                <!-- Acceso por querySelector -->
+                <form id="form-p2" class="form">
+                    <label>Ejército
+                        <select id="p2-army" class="select army">
+                            <option>Orcos</option>
+                            <option>Hombres</option>
+                            <option>Enanos</option>
+                            <option>Elfos</option>
+                        </select>
+                    </label>
+
+                    <!-- Acceso por querySelectorAll -->
+                    <label>Arma
+                        <select class="select weapon" id="p2-weapon">
+                            <option>Hacha</option>
+                            <option>Espada</option>
+                            <option>Arco</option>
+                            <option>Magia</option>
+                        </select>
+                    </label>
+                </form>
+
+                <div class="hp">
+                    <div class="bar" id="p2-bar" style="width:100%"></div>
+                </div>
+                <p id="p2-hp" class="hptext">100 / 100</p>
+
+                <button id="btn-p2" class="btn atacar">Atacar</button>
+            </section>
+
+            <!-- Registro -->
+            <section class="panel panel-log">
+                <h2 class="titulo">Registro de batalla</h2>
+
+                <!-- Creación y borrado de nodos -->
+                <div id="log" class="log">
+                    <p class="muted">Sin eventos. El combate no ha empezado.</p>
+                </div>
+
+                <div class="acciones">
+                    <button id="btn-start" class="btn primario">Iniciar /
+                        Reiniciar</button>
+                    <button id="btn-clear" class="btn">Limpiar registro</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- División en módulos -->
+        <script type="module" src="./js/main.js"></script>
+    </body>
+</html>
