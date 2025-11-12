@@ -75,22 +75,22 @@ function seccionB() {
   //  4. Con un while calcula cuántas están en "AP".
   //  5. Con un for..of o for..in calcula cuántas están en "NT". Justifica tu elección.
 
-  let notas = [3, 5 ,6 ,8, 9]
+  let notas = [3, 5, 6, 8, 9]
 
   function clasificarNota(nota){
     
-    switch(nota){
+    switch(true){
       case (nota >=1 && nota <= 4):
         return "SS"
       
-      case 2:
-        return "SS"
+      case (nota >=5 && nota <= 6):
+        return "AP"
 
-      case 3:
-        return "SS"
+      case (nota >=7 && nota <= 9):
+        return "NT"
 
-      case 4:
-        return "SS"
+      case (nota > 9 && nota <= 10):
+        return "SB"
 
       default:
         return "Formato erróneo, introdzca bien la nota (1 - 10)"
@@ -113,16 +113,16 @@ function seccionB() {
   }
   console.log(`Notas suspendidas: ${notasSS}`)
 
-  // let notasAP = 0;
-  // let contador = 0;
+  let notasAP = 0;
+  let contador = 0;
 
-  // while(contador < notas.length){
-  //   if(clasificarNota(notas[contador]) === "AP"){
-  //     notasAP++;
-  //   }
-  //   contador++;
-  // }
-  // console.log(`Notas aprobadas: ${notasAP}`)
+  while(contador < notas.length){
+    if(clasificarNota(notas[contador]) === "AP"){
+      notasAP++;
+    }
+    contador++;
+  }
+  console.log(`Notas aprobadas: ${notasAP}`)
 
   let notasNT = 0;
   for (const nota in notas) {
@@ -136,19 +136,26 @@ function seccionB() {
 }
 
 /* ===================== Sección C =========================
-   Arrays y agregación sobre 'coches'
-   Requiere datos cargados: un array de objetos coche.
-   TODO: completar según enunciado.
+    Arrays y agregación sobre 'coches'
+    Requiere datos cargados: un array de objetos coche.
+    TODO: completar según enunciado.
 =========================================================== */
 
 /* ===================== Configuración ===================== */
-const DATA_URL = "http://10.103.255.0:3000/coches"; // cambia si procede
+const DATA_URL = "http://localhost:3000/coches"; // cambia si procede
 
 /* ===================== Carga de datos ==================== */
 // TODO Tomar datis de coches
+
 async function getCoches() {
   try {
-  } catch (err) {}
+    const respuesta = await fetch(DATA_URL);
+    const coches = await respuesta.json();
+    // console.log(JSON.stringify(coches))
+    seccionC(coches);
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 function seccionC(coches) {
@@ -166,7 +173,26 @@ function seccionC(coches) {
   // 3.b.     ◦ maxPrecio (objeto completo)
   // 3.c. ◦ mediaPrecio redondeada a 2 decimales.
   // 4. Ordena por precio ascendente sin mutar el original.
+
+  let soloModelos = [];
+
+  coches.forEach((coche, index) => {
+    soloModelos.push(coche.modelo)
+  });
+
+  console.log(JSON.stringify(soloModelos));
+
+  let recientes = []
+  coches.forEach((coche, index) => {
+    if(coche.year >= 2018){
+      recientes.push(coche)
+    }
+  });
+
+  console.log(JSON.stringify(recientes));
+
 }
+
 
 /* ===================== Sección D =========================
    Funciones y modularidad ligera
@@ -207,7 +233,8 @@ function seccionD() {
   try {
     seccionA();
     seccionB();
-    seccionC();
+    // seccionC();
+    getCoches();
     seccionD();
   } catch (e) {
     console.error("Error general:", e);
