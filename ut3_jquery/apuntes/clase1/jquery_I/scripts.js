@@ -12,10 +12,13 @@ function resolverEjercicios() {
   // 6. Cambia la fuente de todos los elementos <p> a Georgia.
   $("p").css("font-family", "Georgia")
   // 7. Cambia el color del texto a rojo de los elementos con el atributo data-enemigo.
+  
   // 8. Resalta los elementos cuyo atributo data-enemigo tenga el valor "true".
   // 9. Aplica cursiva a los elementos con data-personaje distinto de "Mabel".
+  $("[data-personaje]").not("Mabel").css("font-style", "italic")
   // 10. Cambia el fondo de los elementos cuyo atributo data-lugar comience con "caba".
   // 11. Muestra (fadeIn) los elementos cuyo atributo data-rol termine en "final".
+  $("[data-rol$='final']").fadeIn("slow")
   // 12. Aplica un borde rojo grueso a los elementos cuyo atributo title contenga la palabra "villano".
 }
 
