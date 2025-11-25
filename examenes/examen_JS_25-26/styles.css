@@ -1,0 +1,12 @@
+   body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    header, footer { margin-bottom: 1rem; }
+    .acciones { display: flex; gap: .5rem; margin: 1rem 0; }
+    #msgError, #estado { padding: .5rem .75rem; border-radius: .25rem; margin: .5rem 0; }
+    #msgError { background: #ffe6e6; color: #8a0000; /*display: none;*/ }
+    #estado { background: #eef5ff; color: #003e82; display: none; }
+    .resumen { display: flex; gap: 1rem; margin: .75rem 0; }
+    .resumen span strong { font-weight: 600; }
+    #listaLibros { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .75rem; margin: 1rem 0; }  
+    .muted { color: #666; }
+    li {margin-bottom: 1rem;}
+    button { cursor: pointer; }

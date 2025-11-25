@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Examen: Libros (fetch + map + localStorage)</title>
+
+  </head>
+  <body>
+    <header>
+      <h1>Libros</h1>
+      <p class="muted">Fuente: <code>http://10.103.255.0:3000/libros</code></p>
+    </header>
+
+    <section class="acciones">
+      <button id="btnCargar" type="button">Cargar libros</button>
+      <button id="btnLimpiar" type="button">Limpiar</button>
+    </section>
+
+    <div id="msgError" role="alert" aria-live="assertive"></div>
+
+    <section class="resumen" aria-label="Resumen">
+      <span>Total de ejemplares: <strong id="numEjemplares">0</strong></span>
+      <span>Precio total: <strong id="precioTotal">0.00 €</strong></span>
+    </section>
+
+    <main id="listaLibros" aria-label="Lista de libros">
+      <ul id="libros">
+        <!-- Tarjetas generadas por script.js -->
+      </ul>
+    </main>
+
+    <script defer src="scripts.js"></script>
+  </body>
+</html>
