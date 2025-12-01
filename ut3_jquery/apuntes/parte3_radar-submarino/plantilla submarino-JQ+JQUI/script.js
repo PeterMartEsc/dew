@@ -54,13 +54,17 @@ function inicializarDialogo() {
  * Aquí podréis cambiar el contenido según la misión activa.
  */
 function inicializarMision() {
+  // const textoMision = `
+  // Misión 1: Configura el submarino en modo patrulla silenciosa.
+  // - Velocidad moderada.
+  // - Profundidad segura.
+  // - Modo silencio activado.
+  // - Sonar en modo pasivo.
+  // `;
   const textoMision = `
-  Misión 1: Configura el submarino en modo patrulla silenciosa.
-  - Velocidad moderada.
-  - Profundidad segura.
-  - Modo silencio activado.
-  - Sonar en modo pasivo.
-  `;
+    Misión 2: Configura el submarino en escaneo.
+    (Sonar ACTIVO, alcance mínimo, velocidad moderada).
+  `
   $j("#texto-mision").text(textoMision.trim());
 }
 
@@ -124,11 +128,33 @@ function inicializarControlesSonar() {
   $j("#btn-escanear").button()
 
   $j("#btn-escanear").on("click", function(){
-    $j(".barco").fadeIn()
-    $j(".barco").css("visibility", "visible")
-    setTimeout(() => {
-      $j(".barco").fadeOut()
-    }, 1000);
+    let velocidad = $j("#velocidad-valor").html();
+    let sonar = $j("#modo-sonar").find(":selected").text();
+    let alcance = $j("#alcance-sonar-valor").html();
+
+    if(sonar === "Activo" && velocidad <= 10 && alcance >= 1){
+      $j(".barco").fadeIn()
+      $j(".barco").css("visibility", "visible")
+      setTimeout(() => {
+        $j(".barco").fadeOut()
+      }, 1000);
+
+      $j("#dialog-texto").html("")
+      $j("#dialog-mensaje").dialog("open")
+      mostrarMensaje("Éxito", "La <b style='color: green;'>Misión 2</b> se ha iniciado con éxito");
+    } else {
+      $j("#dialog-texto").html("")
+      $j("#dialog-mensaje").dialog("open")
+      mostrarMensaje("No se ha podido iniciar", "Compruebe objetivos de la <b style='color: red;'>Misión 2</b>");
+    }
+  })
+
+  $j("#alcance-sonar-slider").slider({
+    min : 0,
+    max : 20,
+    slide : function(event, ui) {
+      $j("#alcance-sonar-valor").text(ui.value)
+    }
   })
 }
 
@@ -151,17 +177,16 @@ function inicializarEventos() {
     let silencioBool = $j("#silencio-check").prop("checked");
     let sonar = $j("#modo-sonar").find(":selected").text();
 
-  if(velocidad <= 20 && (profundidad >= 100 && profundidad <= 300) && silencioBool && sonar === "Pasivo"){
-    $j("#dialog-texto").html("")
-    // $j("mision1").css("color", "green")
-    $j("#dialog-mensaje").dialog("open")
-    mostrarMensaje("Éxito", "La <b style='color: green;'>Misión 1</b> se ha iniciado con éxito");
-  } else {
-    $j("#dialog-texto").html("")
-    $j("#dialog-mensaje").dialog("open")
-    mostrarMensaje("No se ha podido iniciar", "Compruebe objetivos de la <b style='color: red;'>Misión 1</b>");
-
-  }
+    if(velocidad <= 20 && (profundidad >= 100 && profundidad <= 300) && silencioBool && sonar === "Pasivo"){
+      $j("#dialog-texto").html("")
+      // $j("mision1").css("color", "green")
+      $j("#dialog-mensaje").dialog("open")
+      mostrarMensaje("Éxito", "La <b style='color: green;'>Misión 1</b> se ha iniciado con éxito");
+    } else {
+      $j("#dialog-texto").html("")
+      $j("#dialog-mensaje").dialog("open")
+      mostrarMensaje("No se ha podido iniciar", "Compruebe objetivos de la <b style='color: red;'>Misión 1</b>");
+    }
   })
 
   // - Click en "Reiniciar"
