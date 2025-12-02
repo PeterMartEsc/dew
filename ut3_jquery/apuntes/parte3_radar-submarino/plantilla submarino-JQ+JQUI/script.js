@@ -135,9 +135,9 @@ function inicializarControlesSonar() {
     if(sonar === "Activo" && velocidad <= 10 && alcance >= 1){
       $j(".barco").fadeIn()
       $j(".barco").css("visibility", "visible")
-      setTimeout(() => {
-        $j(".barco").fadeOut()
-      }, 1000);
+      // setTimeout(() => {
+      //   $j(".barco").fadeOut()
+      // }, 1000);
 
       $j("#dialog-texto").html("")
       $j("#dialog-mensaje").dialog("open")
@@ -162,8 +162,22 @@ function inicializarControlesArmas() {
   // TODO: torpedos, tipo de torpedo, botones fijar objetivo / disparar...
   $j("#torpedos-spinner").spinner()
   $j("#tipo-torpedo").selectmenu()
-  $j("#btn-fijar-objetivo").button()
   $j("#btn-disparar").button()
+  const btnFijarObjetivo = $j("#btn-fijar-objetivo").button()
+
+  $j(".barco").click(function(){
+    $j(".barco").removeClass("barco-seleccionado")
+    $j(this).addClass("barco-seleccionado")
+  });
+
+  btnFijarObjetivo.on("click", function(){
+    const barco = $j("#sonar").find(".barco-seleccionado")
+    if(barco === undefined){
+      mostrarMensaje("Error", "Primero selecciona un barco")
+    } else {
+      mostrarMensaje("Objetivo fijado", "Barco " + barco.data("id"))
+    }
+  })
 }
 
 function inicializarEventos() {
