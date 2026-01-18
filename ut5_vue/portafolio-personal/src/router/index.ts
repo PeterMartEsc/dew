@@ -7,8 +7,8 @@ import Experiencia from '@/navigation/Experiencia.vue'
 import Contacto from '@/navigation/Contacto.vue'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/about-me', component: AboutMe },
+  // { path: '/', component: Home },
+  { path: '/', component: AboutMe },
   { path: '/proyectos', component: Proyectos },
   { path: '/habilidades', component: Habilidades },
   { path: '/experiencia', component: Experiencia },

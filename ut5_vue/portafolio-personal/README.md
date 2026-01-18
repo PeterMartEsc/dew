@@ -1,48 +1,11 @@
-# portafolio-personal
+# Portafolio Personal
 
-This template should help get you started developing with Vue 3 in Vite.
+## Inspiraciones
 
-## Recommended IDE Setup
+[Paleta de colores de Silent Hill](https://www.reddit.com/r/silenthill/comments/k9pl78/silent_hill_2_enhanced_edition_colors_chart/)
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Quería darle un toque oscuro al estilo de Silent Hill, pero era una decisión de diseño algo arriesgada. Finalmente, como me vi apurado, decidí darle un enfoque con alguno de los colores de la paleta y ya a futuro para la entrega de DOR mejorarlo.
 
-## Recommended Browser Setup
+[Paleta re-generada con Coolors](https://coolors.co/tailwind/493021)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Utilicé esta página que te genera una paleta de colores a partir de un color, y te da ejemplos de componentes y como debe usarse la paleta
