@@ -5,7 +5,7 @@
     <div class="max-w-4xl mx-auto px-6 py-10">
       <div>
         <h2 class="text-2xl font-semibold mb-2">Desarrollador de Software</h2>
-        <h2 class="text-xl mb-4"> L-Università ta' Malta – Xewkija, Malta</h2>
+        <h2 class="text-xl mb-4"> L-Università ta' Malta – Xewkija, Malta</h2>
         <h4 class="text-md mb-4">[ 10/03/2025 – 16/05/2025 ]</h4>
 
         <div class="rounded-xl bg-sh-800 p-5">
